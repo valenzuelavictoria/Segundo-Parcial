@@ -1,1 +1,45 @@
+#2. Dado un grafo no dirigido con personajes de la saga Star Wars, implementar los algoritmos necesarios para resolver las siguientes tareas:
+#a) cada vértice debe almacenar el nombre de un personaje, las aristas representan la cantidad de episodios en los que aparecieron juntos ambos personajes que se relacionan;
+#b) hallar el árbol de expansión minino y determinar si contiene a Yoda;
+#c) determinar cuál es el número máximo de episodio que comparten dos personajes.
+
+from grafos import Grafo
+from grafos import Arista
+from cola import Cola
+
+grafo = Grafo(dirigido=False)
+
+
+grafo.insert_vertice('Almirante Ackbar')
+grafo.insert_vertice('Finn')
+grafo.insert_vertice('Boba Fett')
+grafo.insert_vertice('Jabba el Hutt')
+grafo.insert_vertice('Mando')
+grafo.insert_vertice('Yoda')
+grafo.insert_vertice('Emperador Palpatin')
+grafo.insert_vertice('Chewbacca')
+grafo.insert_vertice('Rey')
+grafo.insert_vertice('Kylo Ren')
+grafo.insert_vertice('Han Solo')
+grafo.insert_vertice('Darth Vader')
+
+grafo.insert_arista('Finn','Mando', 5)
+grafo.insert_arista('Boba Fett', 'Emperador Palpatin', 1)
+grafo.insert_arista('Han Solo', 'Rey', 8)
+grafo.insert_arista('Yoda','Han solo',13)
+grafo.insert_arista('Jabba el Hutt', 'Darth Vader', 11)
+grafo.insert_arista('Chewbacca', 'Finn',7)
+grafo.insert_arista('Kylo Ren','Rey',4)
+grafo.insert_arista('Yoda','Mando', 3)
+grafo.insert_arista('Almirante Ackbar', 'Emperador Palpatin',9)
+grafo.insert_arista('Chewbacca','Rey', 5)
+grafo.insert_arista('Almirante Ackbar','Jabba el Hutt', 2)
+grafo.insert_arista('Darth Vader','Boba Fett',6)
+
+#b) hallar el árbol de expansión minino y determinar si contiene a Yoda;
+print('Arbol por expancion minima: ')
+bosque = grafo.kruskal()
+
+for arbol in bosque:
+    for nodo in arbol.split()
 
